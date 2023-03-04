@@ -7,4 +7,9 @@ import {Injectable} from "@angular/core";
   constructor(private http: HttpClient) {}
   save(issue: Issue): Observable<Issue> {
     return this.http.post<Issue>(`/api/issues`, issue);
-  } }
+  }
+  getAll(): Observable<Issue[]> {
+    return this.http.get<Issue[]>(`/api/issues`);
+  }
+}
+

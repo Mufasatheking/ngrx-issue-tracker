@@ -11,3 +11,8 @@ export const resolve = createAction( "[Issue] Resolve",
   props<{ issueId: string }>()
 );
 export const submitFailure = createAction("[Issue] Submit Failure");
+
+export const load = createAction("[Issue] Load");
+export const loadSuccess = createAction( "[Issue] Load Success",
+  props<{ issues: Issue[] }>()
+);

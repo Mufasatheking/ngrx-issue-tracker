@@ -1,6 +1,6 @@
-import { initialState } from "./issue.state";
+import {initialState, Issues} from "./issue.state";
 import {createReducer, on} from "@ngrx/store";
-import {resolve, submit, submitFailure, submitSuccess} from "./issue.actions";
+import {loadSuccess, resolve, submit, submitFailure, submitSuccess} from "./issue.actions";
 
 
 export const issueReducer = createReducer(
@@ -23,5 +23,9 @@ export const issueReducer = createReducer(
   }; }),
   on(submitFailure, (state) => ({ ...state,
     loading: false,
-  }))
+  })),
+  on(loadSuccess, (state, { issues }) => { const entities: Issues = {};
+    issues.forEach((issue) => (entities[issue.id] = issue)); return {
+      ...state, entities, loaded: true,
+    }; })
 );
