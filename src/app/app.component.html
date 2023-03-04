@@ -1,6 +1,9 @@
 <header>
   <h1>Issue Tracker</h1>
   <a routerLink="/issues">Issues</a>
+  <div *ngIf="stats$ | async as stats">
+  <span>{{ stats.resolved }} / {{ stats.total }} resolved</span>
+</div>
 </header>
 <main>
   <router-outlet></router-outlet>

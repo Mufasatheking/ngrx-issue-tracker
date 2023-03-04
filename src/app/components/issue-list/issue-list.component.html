@@ -1,7 +1,8 @@
 <ul>
   <li *ngFor="let issue of issues$ | async">
-    <h2>
-      {{ issue.title }}
-      <small>{{ issue.priority }}</small> </h2>
+    <h3>
+      <a [routerLink]="issue.id">{{ issue.title }}</a>
+      <small>{{ issue.priority }}</small>
+    </h3>
     <p>{{ issue.description }}</p> </li>
 </ul>

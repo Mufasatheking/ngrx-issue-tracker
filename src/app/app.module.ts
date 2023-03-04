@@ -13,6 +13,7 @@ import { IssuesComponent } from './components/issues/issues.component';
 import { NewIssueComponent } from './components/new-issue/new-issue.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { IssueListComponent } from './components/issue-list/issue-list.component';
+import { IssueDetailComponent } from './components/issue-detail/issue-detail.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { IssueListComponent } from './components/issue-list/issue-list.component
     AppComponent,
     IssuesComponent,
     NewIssueComponent,
-    IssueListComponent
+    IssueListComponent,
+    IssueDetailComponent
   ],
     imports: [
         BrowserModule,
