@@ -12,7 +12,7 @@ import {RootState} from "../../store";
   styleUrls: ['./issue-detail.component.scss']
 })
 export class IssueDetailComponent {
-  issue$: Observable<Issue>;
+  issue$: Observable<Issue |undefined>;
 
   constructor(private route: ActivatedRoute, private store: Store<RootState>) {
     this.issue$ = this.route.params.pipe(

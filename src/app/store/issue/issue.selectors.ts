@@ -1,15 +1,18 @@
 import {RootState} from "../index";
 import {createSelector, select} from "@ngrx/store";
 import {Issue} from "../../models/issue";
-import {Filter, Issues} from "./issue.state";
+import {adapter, Filter, Issues} from "./issue.state";
 import {pipe, skipWhile} from "rxjs";
+import {Dictionary} from "@ngrx/entity";
 
 export const selectFeature = (state: RootState) => state.issue;
-export const selectEntities = createSelector(selectFeature,
-  ({ entities }) => entities
-);
-export const selectAll = createSelector(selectEntities, (entities) => Object.values(entities)
-);
+export const {
+  selectIds,
+  selectEntities,
+  selectAll,
+  selectTotal,
+} = adapter.getSelectors(selectFeature);
+
 export const selectFilter = createSelector(selectFeature,
   ({ filter }) => filter
 );
@@ -37,13 +40,16 @@ export const selectStats = createSelector(selectAll,
       resolved: resolved.length, };
     }
   );
-export const selectOne = createSelector( selectEntities,
-  (entities: Issues, id: string) => entities[id]
+export const selectOne = createSelector(
+  selectEntities,
+  (entities: Dictionary<Issue>, id: string) => entities[id]
 );
 
-export const createSelectOne = () => createSelector(
-  selectEntities,
-  (entities: Issues, id: string) => entities[id] );
+export const createSelectOne = () =>
+  createSelector(
+    selectEntities,
+    (entities: Dictionary<Issue>, id: string) => entities[id]
+  );
 
 export const selectLoaded = createSelector( selectFeature,
   ({ loaded }) => loaded

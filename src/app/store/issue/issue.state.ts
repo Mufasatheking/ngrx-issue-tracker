@@ -1,4 +1,5 @@
 import {Issue} from "../../models/issue";
+import {createEntityAdapter, EntityState} from "@ngrx/entity";
 
 export interface Issues {
   [id: string]: Issue;
@@ -6,18 +7,13 @@ export interface Issues {
 export interface Filter {
   text: string;
 }
-export interface IssueState {
-  entities: Issues;
+export interface IssueState extends EntityState<Issue> {
   filter: Filter;
   loaded: boolean;
   loading: boolean;
 }
-
-export const initialState: IssueState = {
-  entities: {},
-  filter: {
-    text: "",
-  },
-  loaded:false,
-  loading: true
-};
+export const adapter = createEntityAdapter<Issue>();
+export const initialState: IssueState = adapter.getInitialState({ filter: {
+    text: "", },
+  loaded: false,
+  loading: false, });
