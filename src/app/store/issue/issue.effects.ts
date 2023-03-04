@@ -1,3 +1,4 @@
+/*
 import { Injectable } from '@angular/core';
 import {Actions, createEffect, ofType, OnInitEffects} from '@ngrx/effects';
 import {HttpClient} from "@angular/common/http";
@@ -45,3 +46,4 @@ export class IssueEffects implements OnInitEffects{
     private notifications: NotificationService
   ) {}
 }
+*/

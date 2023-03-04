@@ -1,3 +1,4 @@
+/*
 import {RootState} from "../index";
 import {createSelector, select} from "@ngrx/store";
 import {Issue} from "../../models/issue";
@@ -57,3 +58,23 @@ export const selectLoaded = createSelector( selectFeature,
 export const selectAllLoaded = () => pipe(
   skipWhile((state: RootState) => !selectLoaded(state)),
   select(selectAll) );
+*/
+
+import {EntitySelectorsFactory} from "@ngrx/data";
+import {Issue} from "../../models/issue";
+import {createSelector} from "@ngrx/store";
+
+export const { selectEntities, selectEntityMap,
+} = new EntitySelectorsFactory().create<Issue>("Issue");
+export const selectStats = createSelector( selectEntities,
+  (issues): IssueStats => {
+    const resolved = issues.filter((issue) => issue.resolved);
+    return {
+      total: issues.length, resolved: resolved.length,
+    }; }
+);
+export const selectActiveId = fromRouter.selectRouteParam("id");
+export const selectActive = createSelector( selectEntityMap,
+  selectActiveId,
+  (entities, id) => entities[id]
+);

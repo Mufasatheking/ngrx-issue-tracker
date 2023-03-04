@@ -1,3 +1,4 @@
+/*
 import {Issue} from "../../models/issue";
 import {createAction, props} from "@ngrx/store";
 import {randomId} from "../../util";
@@ -16,3 +17,4 @@ export const load = createAction("[Issue] Load");
 export const loadSuccess = createAction( "[Issue] Load Success",
   props<{ issues: Issue[] }>()
 );
+*/

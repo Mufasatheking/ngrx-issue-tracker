@@ -1,3 +1,4 @@
+/*
 import {adapter, initialState, Issues} from "./issue.state";
 import {createReducer, on} from "@ngrx/store";
 import {loadSuccess, resolve, submit, submitFailure, submitSuccess} from "./issue.actions";
@@ -23,3 +24,4 @@ export const issueReducer = createReducer(
     ...adapter.setAll(issues, state),
     loaded: true, }))
 );
+*/

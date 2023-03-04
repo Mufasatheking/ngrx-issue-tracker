@@ -1,3 +1,4 @@
+/*
 import {Issue} from "../../models/issue";
 import {createEntityAdapter, EntityState} from "@ngrx/entity";
 
@@ -17,3 +18,4 @@ export const initialState: IssueState = adapter.getInitialState({ filter: {
     text: "", },
   loaded: false,
   loading: false, });
+*/

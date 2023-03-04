@@ -19,6 +19,8 @@ import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 import {DatabaseService} from "./services/database.service";
 import { IssueEffects } from './store/issue/issue.effects';
 import {HttpClientModule} from "@angular/common/http";
+import { EntityDataModule } from '@ngrx/data';
+import { entityConfig } from './entity-metadata';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import {HttpClientModule} from "@angular/common/http";
         modules,
         ReactiveFormsModule,
         InMemoryWebApiModule.forRoot(DatabaseService),
-        HttpClientModule
+        HttpClientModule,
+        EntityDataModule.forRoot(entityConfig)
     ],
   providers: [],
   bootstrap: [AppComponent]
