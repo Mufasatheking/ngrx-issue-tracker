@@ -10,6 +10,7 @@ export interface IssueState {
   entities: Issues;
   filter: Filter;
   loaded: boolean;
+  loading: boolean;
 }
 
 export const initialState: IssueState = {
@@ -17,5 +18,6 @@ export const initialState: IssueState = {
   filter: {
     text: "",
   },
-  loaded:false
+  loaded:false,
+  loading: true
 };
