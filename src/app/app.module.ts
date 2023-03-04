@@ -14,6 +14,9 @@ import { NewIssueComponent } from './components/new-issue/new-issue.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { IssueListComponent } from './components/issue-list/issue-list.component';
 import { IssueDetailComponent } from './components/issue-detail/issue-detail.component';
+import {EffectsModule} from "@ngrx/effects";
+import {InMemoryWebApiModule} from "angular-in-memory-web-api";
+import {DatabaseService} from "./services/database.service";
 
 
 @NgModule({
@@ -28,8 +31,10 @@ import { IssueDetailComponent } from './components/issue-detail/issue-detail.com
         BrowserModule,
         AppRoutingModule,
         StoreModule.forRoot(reducers),
+        EffectsModule.forRoot([]),
         modules,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        InMemoryWebApiModule.forRoot(DatabaseService)
     ],
   providers: [],
   bootstrap: [AppComponent]
