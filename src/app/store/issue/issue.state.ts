@@ -9,6 +9,7 @@ export interface Filter {
 export interface IssueState {
   entities: Issues;
   filter: Filter;
+  loaded: boolean;
 }
 
 export const initialState: IssueState = {
@@ -16,4 +17,5 @@ export const initialState: IssueState = {
   filter: {
     text: "",
   },
+  loaded:false
 };

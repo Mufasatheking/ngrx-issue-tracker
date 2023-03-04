@@ -10,4 +10,6 @@ export const submit = createAction("[Issue] Submit", (issue: Issue) => {
   }, };
 });
 
-export const blah = createAction("[Issue] Blah");
+export const resolve = createAction( "[Issue] Resolve",
+  props<{ issueId: string }>()
+);

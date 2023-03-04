@@ -1,7 +1,6 @@
 import { initialState } from "./issue.state";
-import * as IssueActions from "./issue.actions";
 import {createReducer, on} from "@ngrx/store";
-import {blah, submit} from "./issue.actions";
+import {resolve, submit} from "./issue.actions";
 
 
 export const issueReducer = createReducer(
@@ -16,5 +15,14 @@ export const issueReducer = createReducer(
           },
         },
       })
-  )
+  ),
+  on(resolve, (state, { issueId }) =>
+    {
+      const issue = state.entities[issueId];
+      return { ...state, entities: {
+      ...state.entities, [issueId]: {
+        ...issue,
+        resolved: true, },
+    }, };
+  })
 );
